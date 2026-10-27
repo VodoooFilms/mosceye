@@ -4,27 +4,42 @@ set -eu
 HERE=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 ROOT=$(CDPATH= cd -- "$HERE/.." && pwd)
 PYTHON="$HERE/.venv/bin/python"
+HOST=${MOSCEYE_HOST:-127.0.0.1}
+PORT=${MOSCEYE_PORT:-8000}
+CONNECT_HOST="$HOST"
+case "$HOST" in
+  0.0.0.0|::|'[::]') CONNECT_HOST=127.0.0.1 ;;
+esac
+case "$CONNECT_HOST" in
+  \[*\]) ;;
+  *:*) CONNECT_HOST="[$CONNECT_HOST]" ;;
+esac
+BASE_URL="http://$CONNECT_HOST:$PORT"
+case "$HOST" in
+  127.0.0.1|localhost|::1|'[::1]') ;;
+  *) echo "Aviso: MOSCEYE_HOST=$HOST no es local; la API requiere MOSCEYE_TOKEN." >&2 ;;
+esac
 owned_server=''
 cleanup() { if [ -n "$owned_server" ]; then kill "$owned_server" 2>/dev/null || true; fi; }
 trap cleanup EXIT INT TERM
-if curl --fail -s --max-time 2 http://127.0.0.1:8000/health > /tmp/mosceye_health.json; then
-  "$PYTHON" -c 'import json; s=json.load(open("/tmp/mosceye_health.json")); assert s.get("schema_version")==2, "El puerto 8000 tiene otra versión del servidor. Cierra esa instancia antes de continuar."'
+if curl --fail -s --max-time 2 "$BASE_URL/health" > /tmp/mosceye_health.json; then
+  "$PYTHON" -c 'import json; s=json.load(open("/tmp/mosceye_health.json")); assert s.get("schema_version")==2, "Ese puerto tiene otra versión del servidor. Cierra esa instancia antes de continuar."'
 else
   "$PYTHON" "$HERE/sam_service.py" > /tmp/mosceye_service.log 2>&1 &
   owned_server=$!
 fi
 ready=0
 for i in $(seq 1 120); do
-  if curl -s --max-time 2 http://127.0.0.1:8000/health | "$PYTHON" -c 'import sys,json; sys.exit(0 if json.load(sys.stdin).get("ready") else 1)' 2>/dev/null; then
+  if curl -s --max-time 2 "$BASE_URL/health" | "$PYTHON" -c 'import sys,json; sys.exit(0 if json.load(sys.stdin).get("ready") else 1)' 2>/dev/null; then
     ready=1; break
   fi
   if [ -n "$owned_server" ] && ! kill -0 "$owned_server" 2>/dev/null; then break; fi
   sleep 1
 done
 if [ "$ready" -ne 1 ]; then
-  echo 'El motor no pudo iniciar. Revisa /tmp/mosceye_service.log.' >&2
+  echo "El motor no pudo iniciar en $BASE_URL. Revisa /tmp/mosceye_service.log." >&2
   exit 1
 fi
 cmake --build "$ROOT/muse-gadget-sdk/esp32/simulator/build" --parallel
-open 'http://127.0.0.1:8000/desktop' 2>/dev/null || true
+open "$BASE_URL/desktop" 2>/dev/null || true
 "$ROOT/muse-gadget-sdk/esp32/simulator/build/muse_simulator" --retail

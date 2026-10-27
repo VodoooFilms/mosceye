@@ -227,8 +227,35 @@ Por defecto escucha en `127.0.0.1`, pero `MOSCEYE_HOST` permite `0.0.0.0` sin au
 
 ---
 
-## 5. Nota metodológica
+## 5. Estado de implementación (2026-10-26, tarde)
 
-- Revisión de solo lectura: no se creó ni modificó ningún archivo del proyecto.
-- Comandos ejecutados para verificar estado: `unittest discover`, `ctest`, `git status`, `git rev-parse`, `du -sh`.
+Tras la auditoría se implementaron las correcciones. Ver `CHANGELOG.md` para el
+detalle. Resumen:
+
+- **C1** resuelto: `mosceye/` es un repo git y la integración del simulador está
+  commiteada en `muse-gadget-sdk`; `.gitignore` y `VERSIONING.md` añadidos.
+- **H1–H4** resueltos: contrato v2 en el mock, `dev_demo.sh` sin `pkill`, error
+  local de Charm que se limpia, watchdog de inferencia y restauración del último
+  resultado como `stale`.
+- **M1–M7** resueltos: `empty_minutes` real o `null`, `store_calibrated`
+  honesto, reset completo en `configure()`, preview fuera del lock,
+  `run_demo.sh` con host/puerto, video determinista y SAM desactivado en CPU.
+- **M8** parcial: arnés `audit/evaluate.py` y primer pase de etiquetas
+  (`audit/labels.json`, `reviewed: false`). Falta revisión humana y etiquetado
+  de la fila.
+- **M9** resuelto: evidencia fuera de git, script de redacción con YuNet y
+  etiquetas de UI más prudentes.
+- **B1–B6** resueltos: cabeceras/licencias, `requirements.in` + bootstrap,
+  `.gitignore`, token para bind remoto, documentación consolidada y log del
+  watcher.
+
+Verificación final: 29 tests Python OK y `ctest` 1/1 OK.
+
+## 6. Nota metodológica
+
+- La auditoría inicial fue de solo lectura. La implementación posterior se hizo
+  sobre copia respaldada y con commits separados.
+- Comandos ejecutados para verificar estado: `unittest discover`, `ctest`,
+  `git status`, `git rev-parse`, `du -sh`, arranque real del servidor y captura
+  headless del simulador.
 - Los tamaños citados son de esta máquina y pueden variar.

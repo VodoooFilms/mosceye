@@ -1,5 +1,6 @@
 """Semantic person detection; SAM refines only those boxes and never changes counts."""
 from pathlib import Path
+import os
 import time
 import cv2
 import numpy as np
@@ -32,7 +33,9 @@ def classify_people(boxes, scores, shape, zones, calibrated=True):
     cashier=sum(p['role']=='cashier' for p in people) if calibrated else None
     return dict(detections=people,people_in_store=len(people),people_in_queue=queue,
                 cashier_count=cashier,cashier_present=(cashier>0) if calibrated else None,
-                zones_calibrated=calibrated,store_calibrated=True,
+                zones_calibrated=calibrated,
+                # The total is always available; only zone-based roles need calibration.
+                store_calibrated=calibrated,store_total_available=True,
                 people=len(people),frame_w=w,frame_h=h)
 
 
@@ -55,7 +58,10 @@ class Vision:
         with torch.inference_mode():
             self.detector([torch.zeros((3,640,960),device=self.device)])
         checkpoint=HERE/'checkpoints/sam_vit_b_01ec64.pth'
-        if checkpoint.exists():
+        force_cpu_sam=os.getenv('MOSCEYE_SAM_ON_CPU','0').lower() in ('1','true','yes')
+        if self.device=='cpu' and not force_cpu_sam:
+            self.sam_error='SAM desactivado en CPU para evitar latencia. Define MOSCEYE_SAM_ON_CPU=1 para forzarlo.'
+        elif checkpoint.exists():
             try:
                 from segment_anything import sam_model_registry,SamPredictor
                 model=sam_model_registry['vit_b'](checkpoint=str(checkpoint)).eval().to(self.device)

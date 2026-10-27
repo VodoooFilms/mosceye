@@ -23,7 +23,7 @@ class Vision:
     def detect(self,image,config):
         self.seen.append(deepcopy(config));self.entered.set();self.release.wait(2)
         if self.fail:raise RuntimeError('camera/detection failure')
-        return {**classify_people([[250,50,320,280],[10,100,110,400]],[.9,.8],image.shape,config['zones']), 'detector_ms':1}
+        return {**classify_people([[250,50,320,280],[10,100,110,400]],[.9,.8],image.shape,config['zones'],config['zones_calibrated']), 'detector_ms':1}
 
 def engine():
     v=Vision();e=Engine(v,Source(),publish=False);e.state['ready']=True
@@ -84,6 +84,7 @@ class CoreTests(unittest.TestCase):
     def test_uncalibrated_queue_is_unknown_not_zero(self):
         r=classify_people([[250,50,320,280]],[.9],(720,1270,3),DEFAULT_ZONES,False)
         self.assertIsNone(r['people_in_queue']);self.assertIsNone(r['cashier_present']);self.assertEqual(r['people_in_store'],1)
+        self.assertFalse(r['store_calibrated']);self.assertTrue(r['store_total_available'])
 
     def test_source_change_invalidates_zone_calibration(self):
         e,v=engine();cfg=validate_config({'source':'camera'},e.config)
@@ -101,6 +102,29 @@ class CoreTests(unittest.TestCase):
         for field in ['request_id','frame_id','captured_at','timestamp','inference_ms']:
             self.assertIsNone(e.snapshot()[field])
         self.assertFalse(e.snapshot()['counts_ready'])
+
+    def test_reconfigure_clears_every_derived_field(self):
+        e,v=engine();e.submit();finish(e,v)
+        e.state.update(warning='stale',masks_pending=True,total_ms=99,people=7,frame_w=42,frame_h=24)
+        e.configure({'confidence':.7})
+        s=e.snapshot()
+        for field in ['warning','total_ms','people','frame_w','frame_h','empty_minutes','completed_at']:
+            self.assertIsNone(s[field],field)
+        self.assertFalse(s['masks_pending']);self.assertEqual(s['detections'],[]);self.assertEqual(s['masks'],[])
+
+    def test_uncalibrated_result_does_not_invent_empty_minutes(self):
+        e,v=engine();e.configure({'zones_calibrated':False});e.submit();finish(e,v)
+        s=e.snapshot()
+        self.assertTrue(s['counts_ready']);self.assertIsNone(s['people_in_queue']);self.assertIsNone(s['empty_minutes'])
+
+    def test_watchdog_releases_a_stuck_request(self):
+        e,v=engine();e.inference_timeout=.15;e.submit()
+        deadline=time.monotonic()+2
+        while time.monotonic()<deadline and e.snapshot()['busy']:time.sleep(.02)
+        s=e.snapshot()
+        self.assertFalse(s['busy']);self.assertEqual(s['phase'],'error');self.assertIn('agotado',s['error'])
+        v.release.set();e.worker.join(3)
+        self.assertFalse(e.snapshot()['counts_ready']);self.assertFalse(e.snapshot()['busy'])
 
     def test_sam_failure_preserves_count(self):
         e,v=engine();v.sam=True

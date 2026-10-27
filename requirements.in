@@ -1,0 +1,10 @@
+# Direct runtime dependencies for MOSCEYE.
+# The fully pinned lockfile used on this machine is requirements.txt.
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+opencv-python==5.0.0.93
+numpy==2.5.4
+pillow==13.0.0
+torch==2.14.1
+torchvision==0.29.1
+segment-anything @ git+https://github.com/facebookresearch/segment-anything.git@dca509fe793f601edb92606367a655c15ac00fdf

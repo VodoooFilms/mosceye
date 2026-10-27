@@ -1,5 +1,9 @@
 # MOSCEYE — implementación core v2
 
+> **Documento histórico.** Describe el estado del 26 de octubre antes de las
+> mejoras de `AUDIT_MEJORAS_2026-10-26.md`. Para el estado vigente, ver
+> `README.md` y `CHANGELOG.md`.
+
 26 de octubre de 2026 · Mac M4 / MPS. Cambios implementados y validados localmente.
 
 ## Qué cambió
@@ -8,7 +12,7 @@
 - `camera.py`: único productor de video/cámara, buffer con IDs y timestamps; preview y captura usan los mismos frames. Reconectar el navegador no crea otro reloj. Errores de fuente no sirven un frame viejo como imagen actual.
 - `vision.py`: detector semántico TorchVision Faster R-CNN ResNet-50 FPN v2, NMS sobre detecciones de persona, roles disjuntos desde una sola lista. SAM ViT-B procesa las cajas como prompts por lotes; se retiró la grilla automática del flujo productivo.
 - Desktop: interfaz naranja/blanco con métricas principales y captura persistente, overlays controlables, zonas editables, errores visibles y diagnóstico secundario. Se retiraron ráfagas y modo SAM continuo que competían con el request.
-- Charm simulado: vista de 412×412 naranja y blanca, fila y total visibles juntos, hora y antigüedad, confirmación por ID y error/heartbeat. Sin bienvenida obligatoria, loader decorativo ni historial que repita el mismo resultado cada segundo.
+- Charm simulado: vista de 412×412 naranja y blanca, fila y total visibles juntos, hora y antigüedad, confirmación por ID y error/heartbeat. En esta versión no había bienvenida obligatoria; la versión actual sí la tiene (ver `UX_CHARM_2026-10-26.md`).
 - `run_demo.sh`: reutiliza el servidor v2 y evita los pkill globales de antes.
 
 ## Validación realizada

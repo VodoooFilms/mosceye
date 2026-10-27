@@ -2,6 +2,27 @@
 
 Un chequeo desde Charm o Desktop captura un instante de la cámara y devuelve personas en fila y personas visibles. Todo se procesa localmente en esta Mac.
 
+## Instalación en una Mac limpia
+
+```sh
+./mosceye/scripts/bootstrap.sh          # venv + dependencias + simulador
+./mosceye/scripts/bootstrap.sh --sam    # además descarga SAM (358 MB, SHA-256 verificado)
+```
+
+Requiere Python 3.11+, CMake y Ninja. El lockfile reproducible es
+`requirements.txt`; las dependencias directas están en `requirements.in`.
+Sin el checkpoint SAM el conteo sigue funcionando y los contornos quedan
+desactivados con una advertencia. En macOS sin GPU (MPS), SAM también queda
+desactivado por defecto para evitar latencias de decenas de segundos; se puede
+forzar con `MOSCEYE_SAM_ON_CPU=1`.
+
+## Versión y respaldo
+
+El código de `mosceye/` está versionado en su propio repositorio git; la
+integración del simulador vive en el repositorio existente de
+`muse-gadget-sdk`. No hay un repositorio en la raíz del workspace. Esto evita
+que un `git clean` en el SDK borre la UI, la voz o el skill. Ver `VERSIONING.md`.
+
 ## Ejecutar
 
 Desde la raíz del workspace:
@@ -76,9 +97,32 @@ La configuración se guarda en `camera_config.json`. El perfil incluido es una a
 
 `checking` termina cuando están listos los números; `busy` continúa mientras se completan los contornos. Un nuevo chequeo durante `busy` recibe 409. Un frame expirado también recibe 409 con motivo. Cada request limpia los datos anteriores antes de detectar.
 
+`stale=true` significa que el resultado se restauró de la sesión anterior y no
+se midió ahora; Desktop lo atenúa y Charm lo muestra como “DATO ANTERIOR”. El
+servidor conserva el último resultado bueno hasta 24 h y no lo sobrescribe con
+nulos al reiniciar. `empty_minutes` es `null` cuando no se puede calcular y
+solo cuenta desde la última fila no vacía o la última caja desatendida; nunca
+se publica un cero inventado. `store_calibrated` refleja la calibración de
+zonas; el total visible sigue disponible en `people_in_store` y se anuncia con
+`store_total_available`.
+
 Puente local de simulador: señal atómica `/tmp/mosceye_trigger.json`, ack `/tmp/mosceye_trigger_ack.json`, resultado `/tmp/caja_status.json`. Todos comparten IDs; no se usa mtime para decidir que un resultado llegó. El contrato incluye fase, error, antigüedad y heartbeat. No correr el mock antiguo a la vez.
 
-Variables opcionales: `MOSCEYE_PORT` (8000), `MOSCEYE_HOST` (127.0.0.1), `MOSCEYE_RUNTIME_DIR` (/tmp). El servicio sigue escuchando únicamente en localhost por defecto.
+Variables opcionales:
+
+| Variable | Default | Uso |
+|---|---|---|
+| `MOSCEYE_PORT` | `8000` | Puerto HTTP |
+| `MOSCEYE_HOST` | `127.0.0.1` | Interfaz de escucha; fuera de loopback exige `MOSCEYE_TOKEN` |
+| `MOSCEYE_TOKEN` | vacío | Bearer para clientes remotos; localhost queda exento |
+| `MOSCEYE_RUNTIME_DIR` | `/tmp` | Carpeta de estado, ack y logs |
+| `MOSCEYE_VIDEO` | video principal | Fixture alternativo |
+| `MOSCEYE_INFERENCE_TIMEOUT` | `30` | Segundos antes de que el watchdog libere un request colgado |
+| `MOSCEYE_SAM_ON_CPU` | `0` | `1` fuerza SAM en CPU |
+
+El servicio sigue escuchando únicamente en localhost por defecto. Si se expone
+en la red, el token es obligatorio; Desktop no envía el token, así que para uso
+remoto hay que usar un proxy o un cliente propio.
 
 ## Verificar
 
@@ -92,14 +136,40 @@ mosceye/.venv/bin/python mosceye/audit/validate_core_http.py --port 8000
 
 Las capturas comparables de 12 instantes, JSON y prueba Charm→server están en `audit/evidence/core-v2/`. Los scripts de la auditoría anterior cargan el servicio respaldado, para poder reproducir sus defectos originales sin confundirlos con la implementación nueva.
 
+## Evaluación contra etiquetas
+
+```sh
+./mosceye/.venv/bin/python mosceye/audit/evaluate.py
+./mosceye/.venv/bin/python mosceye/audit/evaluate.py --check-labels
+```
+
+`audit/labels.json` guarda conteos humanos por frame. Un `null` significa “sin
+etiquetar” y se excluye del promedio, no se cuenta como cero. El primer pase
+solo etiqueta personas visibles y presencia de caja; la fila requiere revisar
+las zonas sobre cada frame. Marca `reviewed: true` solo después de esa revisión.
+
+## Privacidad de la evidencia
+
+Las imágenes `*-raw.jpg` contienen rostros identificables de CCTV y están
+excluidas de git por `.gitignore`. No las publiques sin redactar. Para generar
+copias con los rostros pixelados:
+
+```sh
+./mosceye/.venv/bin/python mosceye/scripts/redact_evidence.py mosceye/audit/evidence
+```
+
+El script descarga YuNet una vez (227 KB, SHA-256 fijo) y escribe archivos
+`*-redacted.jpg`; nunca modifica los originales. Es una heurística: revisa el
+resultado antes de compartirlo.
+
 ## Límites actuales
 
-- Hay omisiones con niños y personas muy ocluidas, y pueden aparecer duplicados. Las zonas también pueden clasificar a alguien de paso como parte de la fila. La revisión visual de 12 instantes está conservada; **no se ha calculado precisión/MAE contra anotaciones humanas independientes**.
+- Hay omisiones con niños y personas muy ocluidas, y pueden aparecer duplicados. Las zonas también pueden clasificar a alguien de paso como parte de la fila. Hay un arnés de evaluación (`audit/evaluate.py` + `audit/labels.json`) con un primer pase visual de 12 instantes; **las etiquetas aún no están revisadas por una persona** y la fila sigue sin etiquetar. El MAE de personas visibles es 0 en esas 12 muestras, pero debe confirmarse con anotación independiente.
 - “Personas visibles” incluye personal; no representa ocupación de toda la tienda fuera del campo de visión.
 - La app Charm modificada es del **simulador**. Falta portar y verificar transporte/UI en un Charm físico; estos archivos `/tmp` no son un transporte para otra máquina.
 - No se identifica gente ni se mantiene tracking de identidad. Los IDs de cajas valen dentro del chequeo.
 
-El respaldo anterior a esta implementación está en `backups/pre-core-2026-10-26/`. Los informes anteriores describen la versión antigua; el estado vigente es este README y `IMPLEMENTACION_CORE_V2_2026-10-26.md`.
+El respaldo anterior a esta implementación está en `backups/pre-core-2026-10-26/`. Los informes anteriores describen versiones pasadas; el estado vigente es este README, `CHANGELOG.md` y `AUDIT_MEJORAS_2026-10-26.md`. `IMPLEMENTACION_CORE_V2_2026-10-26.md` queda como documento histórico: su frase “sin bienvenida obligatoria” ya no aplica.
 
 
 ## Charm y marca compartida

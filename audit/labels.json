@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created": "2026-10-26",
+  "reviewed": false,
+  "method": "First-pass visual count over audit/evidence/core-v2/contact-raw.jpg (no detector boxes). Store counts are independent of the model output. Queue and cashier are left null because they need zone-aware labeling.",
+  "notes": "Mark reviewed=true only after a person checks every frame against the zones in camera_config.json.",
+  "frames": {
+    "005": {"people_in_store": 11, "people_in_queue": null, "cashier_present": true},
+    "008": {"people_in_store": 12, "people_in_queue": null, "cashier_present": true},
+    "015": {"people_in_store": 13, "people_in_queue": null, "cashier_present": true},
+    "025": {"people_in_store": 13, "people_in_queue": null, "cashier_present": true},
+    "035": {"people_in_store": 10, "people_in_queue": null, "cashier_present": true},
+    "045": {"people_in_store": 12, "people_in_queue": null, "cashier_present": true},
+    "055": {"people_in_store": 12, "people_in_queue": null, "cashier_present": true},
+    "065": {"people_in_store": 14, "people_in_queue": null, "cashier_present": true},
+    "075": {"people_in_store": 13, "people_in_queue": null, "cashier_present": true},
+    "085": {"people_in_store": 9, "people_in_queue": null, "cashier_present": true},
+    "095": {"people_in_store": 11, "people_in_queue": null, "cashier_present": true},
+    "105": {"people_in_store": 8, "people_in_queue": null, "cashier_present": true}
+  }
+}
