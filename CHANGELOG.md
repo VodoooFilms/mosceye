@@ -1,5 +1,15 @@
 # Changelog — MOSCEYE
 
+## v0.2.4 — 2026-10-27
+
+### Publicación y fuentes de video
+- `MOSCEYE_VIDEO` acepta también URLs directas de stream (MP4/HLS) que se
+  pasan a OpenCV; para YouTube se documenta resolver antes con `yt-dlp -g`.
+- El README explica por qué el footage CCTV no se distribuye con el repo
+  (derechos de terceros y rostros identificables) y cómo conectar otra fuente.
+- Primera publicación pública del repositorio (código, Desktop, tests y
+  documentación; sin pesos del modelo ni footage).
+
 ## v0.2.3 — 2026-10-27
 
 ### EMPEZAR reinicia la demo

@@ -1,11 +1,12 @@
 """Core regressions: concurrency, provenance, error recovery and coherent counts."""
-import sys,time,threading,unittest
+import os,sys,time,threading,unittest
 from pathlib import Path
 from copy import deepcopy
+from unittest.mock import patch
 import cv2,numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from camera import Frame,timestamp
-from sam_service import Engine,BusyError,validate_config
+from sam_service import Engine,BusyError,validate_config,pick_video
 from vision import classify_people,DEFAULT_ZONES
 
 class Source:
@@ -142,6 +143,12 @@ class CoreTests(unittest.TestCase):
         with self.assertRaises(BusyError):e.begin_demo()
         self.assertTrue(e.snapshot()['busy']);self.assertEqual(e.source.play_calls,[])
         finish(e,v);self.assertTrue(e.snapshot()['counts_ready'])
+
+    def test_video_override_accepts_direct_stream_url(self):
+        with patch.dict(os.environ,{'MOSCEYE_VIDEO':'https://example.com/tienda.m3u8'}):
+            self.assertEqual(pick_video(),'https://example.com/tienda.m3u8')
+        with patch.dict(os.environ,{'MOSCEYE_VIDEO':'/no/existe.mp4'}):
+            self.assertIsNone(pick_video())
 
     def test_sam_failure_preserves_count(self):
         e,v=engine();v.sam=True

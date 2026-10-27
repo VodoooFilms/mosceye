@@ -19,6 +19,9 @@ def pick_video():
     """Deterministic fixture selection; never depend on arbitrary glob order."""
     override=os.getenv('MOSCEYE_VIDEO')
     if override:
+        # Direct stream URLs (MP4/HLS) are passed through to OpenCV. For
+        # YouTube, resolve one first: MOSCEYE_VIDEO=$(yt-dlp -g <url>).
+        if override.startswith(('http://','https://')):return override
         path=Path(override).expanduser()
         return path if path.exists() else None
     folder=HERE.parent/'camara footage para test'

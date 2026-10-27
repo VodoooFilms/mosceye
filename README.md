@@ -16,6 +16,27 @@ desactivados con una advertencia. En macOS sin GPU (MPS), SAM también queda
 desactivado por defecto para evitar latencias de decenas de segundos; se puede
 forzar con `MOSCEYE_SAM_ON_CPU=1`.
 
+## Video de prueba
+
+El footage de demo **no se incluye en este repositorio**: es material CCTV de
+terceros con rostros identificables. MOSCEYE funciona con cualquier fuente:
+
+```sh
+# Un archivo local tuyo
+MOSCEYE_VIDEO=/ruta/a/tu-video.mp4 ./mosceye/run_demo.sh
+
+# Una URL directa de stream (MP4/HLS)
+MOSCEYE_VIDEO=https://ejemplo.com/tienda.m3u8 ./mosceye/run_demo.sh
+
+# YouTube, resolviendo antes la URL directa (experimental: caduca y
+# requiere red; úsalo solo con videos que tengas derecho a usar)
+MOSCEYE_VIDEO=$(yt-dlp -g "https://www.youtube.com/watch?v=...") ./mosceye/run_demo.sh
+```
+
+Sin `MOSCEYE_VIDEO`, se usa `principal.mp4` dentro de la carpeta local
+`camara footage para test`, junto al workspace. Al cambiar de video hay que
+recalibrar las zonas de fila y caja desde Desktop → Configuración.
+
 ## Versión y respaldo
 
 El código de `mosceye/` está versionado en su propio repositorio git; la
