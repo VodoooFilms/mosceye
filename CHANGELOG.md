@@ -1,5 +1,23 @@
 # Changelog — MOSCEYE
 
+## v0.2.3 — 2026-10-27
+
+### EMPEZAR reinicia la demo
+- El botón **EMPEZAR** de Charm ahora escribe la señal `{"action":"start"}` en
+  `/tmp/mosceye_trigger.json` (antes el servidor la ignoraba).
+- Al recibirla, el servidor pone el video en play desde el segundo 0 y limpia
+  el análisis anterior completo (conteos, detecciones, máscaras SAM y captura),
+  de modo que Desktop deja de mostrar el resultado persistido y cada demo
+  empieza desde cero.
+- Si hay un chequeo en curso, la señal se ignora sin interrumpirlo
+  (`BusyError` registrado). `stop` sigue sin detener la cámara.
+- El watcher de señales valida que el trigger sea un objeto JSON antes de
+  actuar; un contenido mal formado ya no puede matar el hilo.
+- Tests: `test_start_signal_restarts_video_and_clears_analysis` y
+  `test_start_signal_does_not_interrupt_a_check`. Suite: 33/33 y `ctest` 1/1.
+- Verificado en vivo: resultado con 13 detecciones y 13 máscaras → señal
+  `start` → estado `idle` sin datos, `capture.jpg` en 404 y playhead en 1,8 s.
+
 ## v0.2.2 — 2026-10-27
 
 ### Corrección: segfault del simulador al arrastrar fuera de la ventana

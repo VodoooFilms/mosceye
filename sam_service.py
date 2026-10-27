@@ -256,6 +256,42 @@ class Engine:
             self.frame=None;self._publish()
             return deepcopy(new)
 
+    def begin_demo(self):
+        """EMPEZAR on Charm: restart the footage and drop the previous analysis.
+
+        The demo always starts from a clean slate instead of leaving the last
+        SAM result on screen. A check already in flight is never interrupted.
+        """
+        with self.lock:
+            if self.state['busy']:
+                raise BusyError('Hay un chequeo en curso. Espera a que termine.')
+            self.source.play(True,0.)
+            if not self.state['ready']:return
+            self._last_nonempty=None
+            self._reset_result_state(zones_calibrated=self.config['zones_calibrated'],
+                source=self.config['source'],config_version=self.config['version'])
+            self.frame=None
+            self._publish()
+
+    def _handle_signal(self,msg):
+        if not isinstance(msg,dict):
+            log_runtime(f'trigger ignored, expected an object: {msg!r}')
+            return
+        action=msg.get('action');client_id=msg.get('request_id')
+        if action=='start':
+            try:self.begin_demo()
+            except Exception as e:log_runtime(f'start signal ignored: {e}')
+            return
+        if action=='stop':
+            # Leaving the demo does not stop the camera or the service.
+            return
+        if action=='check':
+            try:
+                reply=self.submit(client_request_id=client_id)
+                atomic_json(ACK_PATH,dict(client_request_id=client_id,request_id=reply['request_id'],error=None))
+            except Exception as e:
+                atomic_json(ACK_PATH,dict(client_request_id=client_id,request_id=None,error=str(e)))
+
     def _watch_signals(self):
         last=TRIGGER_PATH.stat().st_mtime_ns if TRIGGER_PATH.exists() else 0
         heartbeat=0.;last_log=0.
@@ -264,16 +300,7 @@ class Engine:
                 sig=TRIGGER_PATH.stat().st_mtime_ns
                 if sig==last:continue
                 msg=json.loads(TRIGGER_PATH.read_text());last=sig
-                action=msg.get('action');client_id=msg.get('request_id')
-                if action in ('start','stop'):
-                    # Charm navigation does not control camera availability.
-                    continue
-                if action=='check':
-                    try:
-                        reply=self.submit(client_request_id=client_id)
-                        atomic_json(ACK_PATH,dict(client_request_id=client_id,request_id=reply['request_id'],error=None))
-                    except Exception as e:
-                        atomic_json(ACK_PATH,dict(client_request_id=client_id,request_id=None,error=str(e)))
+                self._handle_signal(msg)
             except (FileNotFoundError,json.JSONDecodeError,OSError) as e:
                 if time.monotonic()-last_log>5:
                     log_runtime(f'trigger unreadable: {e}');last_log=time.monotonic()

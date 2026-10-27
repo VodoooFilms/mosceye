@@ -31,7 +31,7 @@ Desde la raíz del workspace:
 ./mosceye/run_demo.sh
 ```
 
-Abre el Desktop en http://127.0.0.1:8000/desktop y el simulador Charm 412×412. En Charm: **EMPEZAR** abre las dos pantallas de fila y tienda, navegables con drag o puntos de página; **Inicio** vuelve a la bienvenida. Pulsa **Chequear** en cualquiera de las apps. La bienvenida no detiene ni reinicia el servicio. El video principal es el único fixture de la demo; el segundo archivo se conserva fuera del flujo.
+Abre el Desktop en http://127.0.0.1:8000/desktop y el simulador Charm 412×412. En Charm: **EMPEZAR** abre las dos pantallas de fila y tienda, navegables con drag o puntos de página; **Inicio** vuelve a la bienvenida. Pulsa **Chequear** en cualquiera de las apps. EMPEZAR también reinicia la demo: el servidor vuelve a reproducir el video desde el principio y descarta el análisis anterior (conteos, cajas y contornos SAM) en todas las pantallas, para empezar cada demo desde cero. Si hay un chequeo en curso, EMPEZAR no lo interrumpe. La bienvenida no detiene el servicio. El video principal es el único fixture de la demo; el segundo archivo se conserva fuera del flujo.
 
 El launcher reutiliza un servidor v2 sano y no mata procesos ajenos. Si inicia su propio servidor, lo cierra cuando termina el simulador. Requiere el entorno `.venv`, CMake y el build del SDK ya configurado en esta máquina.
 

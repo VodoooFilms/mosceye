@@ -12,10 +12,12 @@ class Source:
     def __init__(self):
         image=np.zeros((720,1270,3),np.uint8)
         self.frame=Frame('frame-1',image,b'jpg',timestamp(),'footage',1,8.)
+        self.play_calls=[]
     def latest(self,frame_id=None):
         if frame_id and frame_id!=self.frame.id:raise ValueError('expired')
         return self.frame
     def status(self):return dict(source_version=1,playing=True)
+    def play(self,playing=True,seek=None):self.play_calls.append((playing,seek))
 
 class Vision:
     sam=None;sam_error=None;device='cpu'
@@ -125,6 +127,21 @@ class CoreTests(unittest.TestCase):
         self.assertFalse(s['busy']);self.assertEqual(s['phase'],'error');self.assertIn('agotado',s['error'])
         v.release.set();e.worker.join(3)
         self.assertFalse(e.snapshot()['counts_ready']);self.assertFalse(e.snapshot()['busy'])
+
+    def test_start_signal_restarts_video_and_clears_analysis(self):
+        e,v=engine();e.submit();finish(e,v)
+        self.assertTrue(e.snapshot()['counts_ready']);self.assertIsNotNone(e.frame)
+        e._handle_signal({'action':'start'})
+        s=e.snapshot()
+        self.assertFalse(s['counts_ready']);self.assertEqual(s['detections'],[]);self.assertEqual(s['masks'],[])
+        self.assertIsNone(s['people_in_queue']);self.assertIsNone(e.frame)
+        self.assertEqual(e.source.play_calls,[(True,0.)])
+
+    def test_start_signal_does_not_interrupt_a_check(self):
+        e,v=engine();e.submit()
+        with self.assertRaises(BusyError):e.begin_demo()
+        self.assertTrue(e.snapshot()['busy']);self.assertEqual(e.source.play_calls,[])
+        finish(e,v);self.assertTrue(e.snapshot()['counts_ready'])
 
     def test_sam_failure_preserves_count(self):
         e,v=engine();v.sam=True
