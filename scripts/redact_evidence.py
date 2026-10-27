@@ -37,7 +37,10 @@ def ensure_model(path: Path) -> Path:
     tmp = path.with_suffix(path.suffix + ".part")
     print(f"Descargando modelo de detección de rostros en {path}…", file=sys.stderr)
     try:
-        urllib.request.urlretrieve(MODEL_URL, tmp)
+        try:
+            urllib.request.urlretrieve(MODEL_URL, tmp)
+        except OSError as error:
+            raise SystemExit(f"No se pudo descargar el modelo de rostros: {error}") from error
         digest = hashlib.sha256(tmp.read_bytes()).hexdigest()
         if digest != MODEL_SHA256:
             raise SystemExit(f"El modelo descargado no coincide con el SHA-256 esperado ({digest}).")
