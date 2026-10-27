@@ -1,0 +1,160 @@
+{
+  "frames": [
+    {
+      "frame_time_sec": 5,
+      "people_in_queue": 5,
+      "people_in_store": 11,
+      "cashier_count": 2,
+      "inference_ms": 502,
+      "sam_ms": 1496,
+      "total_ms": 1999,
+      "masks_total": 11
+    },
+    {
+      "frame_time_sec": 8,
+      "people_in_queue": 4,
+      "people_in_store": 12,
+      "cashier_count": 2,
+      "inference_ms": 473,
+      "sam_ms": 1223,
+      "total_ms": 1698,
+      "masks_total": 12
+    },
+    {
+      "frame_time_sec": 15,
+      "people_in_queue": 5,
+      "people_in_store": 13,
+      "cashier_count": 2,
+      "inference_ms": 466,
+      "sam_ms": 1209,
+      "total_ms": 1677,
+      "masks_total": 13
+    },
+    {
+      "frame_time_sec": 25,
+      "people_in_queue": 5,
+      "people_in_store": 13,
+      "cashier_count": 2,
+      "inference_ms": 472,
+      "sam_ms": 1032,
+      "total_ms": 1505,
+      "masks_total": 13
+    },
+    {
+      "frame_time_sec": 35,
+      "people_in_queue": 4,
+      "people_in_store": 10,
+      "cashier_count": 2,
+      "inference_ms": 464,
+      "sam_ms": 1489,
+      "total_ms": 1954,
+      "masks_total": 10
+    },
+    {
+      "frame_time_sec": 45,
+      "people_in_queue": 6,
+      "people_in_store": 12,
+      "cashier_count": 2,
+      "inference_ms": 478,
+      "sam_ms": 1005,
+      "total_ms": 1485,
+      "masks_total": 12
+    },
+    {
+      "frame_time_sec": 55,
+      "people_in_queue": 4,
+      "people_in_store": 12,
+      "cashier_count": 1,
+      "inference_ms": 460,
+      "sam_ms": 1032,
+      "total_ms": 1494,
+      "masks_total": 12
+    },
+    {
+      "frame_time_sec": 65,
+      "people_in_queue": 3,
+      "people_in_store": 14,
+      "cashier_count": 2,
+      "inference_ms": 461,
+      "sam_ms": 1221,
+      "total_ms": 1684,
+      "masks_total": 14
+    },
+    {
+      "frame_time_sec": 75,
+      "people_in_queue": 4,
+      "people_in_store": 13,
+      "cashier_count": 2,
+      "inference_ms": 467,
+      "sam_ms": 1006,
+      "total_ms": 1474,
+      "masks_total": 13
+    },
+    {
+      "frame_time_sec": 85,
+      "people_in_queue": 3,
+      "people_in_store": 9,
+      "cashier_count": 1,
+      "inference_ms": 461,
+      "sam_ms": 2020,
+      "total_ms": 2483,
+      "masks_total": 9
+    },
+    {
+      "frame_time_sec": 95,
+      "people_in_queue": 6,
+      "people_in_store": 11,
+      "cashier_count": 1,
+      "inference_ms": 468,
+      "sam_ms": 988,
+      "total_ms": 1456,
+      "masks_total": 11
+    },
+    {
+      "frame_time_sec": 105,
+      "people_in_queue": 2,
+      "people_in_store": 8,
+      "cashier_count": 2,
+      "inference_ms": 457,
+      "sam_ms": 965,
+      "total_ms": 1424,
+      "masks_total": 8
+    }
+  ],
+  "sequential_20_ms": [
+    460,
+    465,
+    461,
+    462,
+    461,
+    461,
+    461,
+    471,
+    463,
+    461,
+    463,
+    463,
+    464,
+    464,
+    466,
+    469,
+    464,
+    462,
+    461,
+    461
+  ],
+  "concurrent_codes": [
+    409,
+    409,
+    202,
+    409,
+    409,
+    409,
+    409,
+    409
+  ],
+  "count_p50_ms": 466.5,
+  "count_p95_ms": 488.79999999999995,
+  "total_p50_ms": 1591.0,
+  "total_p95_ms": 2216.7999999999997
+}

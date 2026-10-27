@@ -1,0 +1,1 @@
+{"source": "footage", "camera_index": 0, "confidence": 0.65, "sam_enabled": true, "zones": {"queue": [[0.16, 0.04], [0.32, 0.04], [0.32, 0.7], [0.16, 0.7]], "cashier": [[0, 0.12], [0.155, 0.12], [0.155, 0.72], [0, 0.72]]}, "zones_calibrated": true, "version": 5}

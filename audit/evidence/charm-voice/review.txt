@@ -1,0 +1,7 @@
+retail=true
+start=true
+voice=open
+voice=record
+advance=1200
+voice=stop
+advance=200

@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Model weights and local backups
+checkpoints/
+backups/
+
+# Generated macOS app bundle
+MOSCEYE Charm.app/
+
+# Local evidence may contain identifiable faces from CCTV footage.
+# Track only the JSON/text reports, never the raw images.
+audit/evidence/**/*.jpg
+audit/evidence/**/*.jpeg
+audit/evidence/**/*.png
+audit/evidence/**/*.mp4
+
+# OS / logs
+.DS_Store
+*.log

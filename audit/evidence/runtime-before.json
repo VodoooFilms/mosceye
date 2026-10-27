@@ -1,0 +1,1991 @@
+{
+  "people": 6,
+  "people_in_queue": 5,
+  "people_in_store": 16,
+  "store_calibrated": true,
+  "cashier_present": true,
+  "status": "cola",
+  "idle": 0,
+  "empty_minutes": 0,
+  "checking": false,
+  "ready": true,
+  "device": "mps",
+  "frame_time_sec": 23.331348832999993,
+  "inference_ms": 14230,
+  "timestamp": "2026-10-26T17:33:34",
+  "source": "footage",
+  "masks_total": 148,
+  "frame_w": 1270,
+  "frame_h": 720,
+  "masks_detail": [
+    {
+      "bbox": [
+        834.0,
+        320.0,
+        89.0,
+        153.0
+      ],
+      "area": 8320.0,
+      "predicted_iou": 0.9951086044311523,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        703.0,
+        466.0,
+        411.0,
+        251.0
+      ],
+      "area": 60056.0,
+      "predicted_iou": 0.9941943883895874,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1229.0,
+        365.0,
+        40.0,
+        91.0
+      ],
+      "area": 2502.0,
+      "predicted_iou": 0.9847687482833862,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        40.0,
+        222.0,
+        84.0,
+        130.0
+      ],
+      "area": 8509.0,
+      "predicted_iou": 0.9735506772994995,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        633.0,
+        632.0,
+        143.0,
+        87.0
+      ],
+      "area": 10244.0,
+      "predicted_iou": 0.9660286903381348,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        113.0,
+        259.0,
+        53.0,
+        63.0
+      ],
+      "area": 2490.0,
+      "predicted_iou": 0.9644501209259033,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1004.0,
+        648.0,
+        110.0,
+        70.0
+      ],
+      "area": 5101.0,
+      "predicted_iou": 0.9529738426208496,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1070.0,
+        507.0,
+        103.0,
+        138.0
+      ],
+      "area": 7988.0,
+      "predicted_iou": 0.9476196765899658,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        739.0,
+        186.0,
+        42.0,
+        95.0
+      ],
+      "area": 2855.0,
+      "predicted_iou": 0.9464525580406189,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        921.0,
+        260.0,
+        45.0,
+        67.0
+      ],
+      "area": 2386.0,
+      "predicted_iou": 0.9464111328125,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        686.0,
+        211.0,
+        33.0,
+        39.0
+      ],
+      "area": 970.0,
+      "predicted_iou": 0.9458677768707275,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        517.0,
+        114.0,
+        29.0,
+        75.0
+      ],
+      "area": 1849.0,
+      "predicted_iou": 0.9456830024719238,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1169.0,
+        507.0,
+        59.0,
+        46.0
+      ],
+      "area": 1134.0,
+      "predicted_iou": 0.9436098337173462,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        421.0,
+        98.0,
+        39.0,
+        62.0
+      ],
+      "area": 2102.0,
+      "predicted_iou": 0.943219780921936,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        74.0,
+        64.0,
+        60.0,
+        122.0
+      ],
+      "area": 3009.0,
+      "predicted_iou": 0.9408864974975586,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        634.0,
+        671.0,
+        67.0,
+        47.0
+      ],
+      "area": 2379.0,
+      "predicted_iou": 0.9375066757202148,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        360.0,
+        144.0,
+        28.0,
+        63.0
+      ],
+      "area": 1248.0,
+      "predicted_iou": 0.9366613030433655,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        476.0,
+        87.0,
+        40.0,
+        81.0
+      ],
+      "area": 2759.0,
+      "predicted_iou": 0.934739887714386,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        183.0,
+        504.0,
+        114.0,
+        177.0
+      ],
+      "area": 9118.0,
+      "predicted_iou": 0.9342719912528992,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        825.0,
+        188.0,
+        99.0,
+        285.0
+      ],
+      "area": 19602.0,
+      "predicted_iou": 0.9340644478797913,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        208.0,
+        256.0,
+        73.0,
+        115.0
+      ],
+      "area": 5927.0,
+      "predicted_iou": 0.9299996495246887,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": true
+    },
+    {
+      "bbox": [
+        1113.0,
+        23.0,
+        62.0,
+        58.0
+      ],
+      "area": 2258.0,
+      "predicted_iou": 0.9299377799034119,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        836.0,
+        166.0,
+        31.0,
+        42.0
+      ],
+      "area": 1103.0,
+      "predicted_iou": 0.9289731979370117,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        211.0,
+        259.0,
+        50.0,
+        38.0
+      ],
+      "area": 1207.0,
+      "predicted_iou": 0.9286741018295288,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        321.0,
+        170.0,
+        32.0,
+        50.0
+      ],
+      "area": 1043.0,
+      "predicted_iou": 0.9281609058380127,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        335.0,
+        59.0,
+        68.0,
+        92.0
+      ],
+      "area": 3810.0,
+      "predicted_iou": 0.9271016716957092,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1232.0,
+        60.0,
+        37.0,
+        71.0
+      ],
+      "area": 1934.0,
+      "predicted_iou": 0.9259865880012512,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        81.0,
+        397.0,
+        34.0,
+        48.0
+      ],
+      "area": 1022.0,
+      "predicted_iou": 0.924280047416687,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1172.0,
+        559.0,
+        97.0,
+        159.0
+      ],
+      "area": 6925.0,
+      "predicted_iou": 0.9238638877868652,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        836.0,
+        130.0,
+        42.0,
+        78.0
+      ],
+      "area": 1993.0,
+      "predicted_iou": 0.9231131076812744,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        240.0,
+        114.0,
+        49.0,
+        54.0
+      ],
+      "area": 1778.0,
+      "predicted_iou": 0.9226397275924683,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1114.0,
+        23.0,
+        32.0,
+        46.0
+      ],
+      "area": 1147.0,
+      "predicted_iou": 0.9205771684646606,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1226.0,
+        446.0,
+        43.0,
+        58.0
+      ],
+      "area": 1596.0,
+      "predicted_iou": 0.9201266765594482,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        559.0,
+        130.0,
+        36.0,
+        86.0
+      ],
+      "area": 2504.0,
+      "predicted_iou": 0.9163792729377747,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        901.0,
+        111.0,
+        36.0,
+        47.0
+      ],
+      "area": 1206.0,
+      "predicted_iou": 0.9142297506332397,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        79.0,
+        599.0,
+        60.0,
+        119.0
+      ],
+      "area": 2299.0,
+      "predicted_iou": 0.912968635559082,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1164.0,
+        102.0,
+        55.0,
+        60.0
+      ],
+      "area": 2219.0,
+      "predicted_iou": 0.9122034907341003,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        63.0,
+        328.0,
+        65.0,
+        92.0
+      ],
+      "area": 2874.0,
+      "predicted_iou": 0.9108787775039673,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1199.0,
+        0.0,
+        70.0,
+        26.0
+      ],
+      "area": 1153.0,
+      "predicted_iou": 0.9079222083091736,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        594.0,
+        170.0,
+        23.0,
+        40.0
+      ],
+      "area": 904.0,
+      "predicted_iou": 0.9068166017532349,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        951.0,
+        3.0,
+        106.0,
+        33.0
+      ],
+      "area": 2364.0,
+      "predicted_iou": 0.9066523909568787,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        599.0,
+        100.0,
+        35.0,
+        55.0
+      ],
+      "area": 1266.0,
+      "predicted_iou": 0.9049805998802185,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        952.0,
+        4.0,
+        63.0,
+        32.0
+      ],
+      "area": 1636.0,
+      "predicted_iou": 0.9042292833328247,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        685.0,
+        277.0,
+        111.0,
+        146.0
+      ],
+      "area": 7217.0,
+      "predicted_iou": 0.903489887714386,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        686.0,
+        277.0,
+        111.0,
+        73.0
+      ],
+      "area": 3745.0,
+      "predicted_iou": 0.9027246236801147,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        246.0,
+        599.0,
+        60.0,
+        39.0
+      ],
+      "area": 1015.0,
+      "predicted_iou": 0.9027107954025269,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1127.0,
+        108.0,
+        40.0,
+        37.0
+      ],
+      "area": 1120.0,
+      "predicted_iou": 0.8991715312004089,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        0.0,
+        632.0,
+        39.0,
+        86.0
+      ],
+      "area": 2012.0,
+      "predicted_iou": 0.8984835743904114,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        845.0,
+        129.0,
+        33.0,
+        38.0
+      ],
+      "area": 940.0,
+      "predicted_iou": 0.8977187871932983,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1152.0,
+        163.0,
+        35.0,
+        40.0
+      ],
+      "area": 1020.0,
+      "predicted_iou": 0.8964167833328247,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        606.0,
+        326.0,
+        39.0,
+        52.0
+      ],
+      "area": 1268.0,
+      "predicted_iou": 0.8958994150161743,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1129.0,
+        559.0,
+        140.0,
+        159.0
+      ],
+      "area": 10204.0,
+      "predicted_iou": 0.8955963253974915,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1152.0,
+        163.0,
+        59.0,
+        52.0
+      ],
+      "area": 1868.0,
+      "predicted_iou": 0.8953600525856018,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        433.0,
+        385.0,
+        72.0,
+        61.0
+      ],
+      "area": 3330.0,
+      "predicted_iou": 0.8948953747749329,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        42.0,
+        62.0,
+        34.0,
+        113.0
+      ],
+      "area": 2935.0,
+      "predicted_iou": 0.8927807211875916,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1165.0,
+        102.0,
+        33.0,
+        50.0
+      ],
+      "area": 1152.0,
+      "predicted_iou": 0.8921995162963867,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        805.0,
+        53.0,
+        61.0,
+        43.0
+      ],
+      "area": 1681.0,
+      "predicted_iou": 0.8911205530166626,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        289.0,
+        68.0,
+        50.0,
+        110.0
+      ],
+      "area": 3564.0,
+      "predicted_iou": 0.8898123502731323,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": true
+    },
+    {
+      "bbox": [
+        1196.0,
+        288.0,
+        52.0,
+        60.0
+      ],
+      "area": 2182.0,
+      "predicted_iou": 0.8896776437759399,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        386.0,
+        153.0,
+        50.0,
+        123.0
+      ],
+      "area": 3303.0,
+      "predicted_iou": 0.8888828754425049,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1170.0,
+        57.0,
+        38.0,
+        40.0
+      ],
+      "area": 1043.0,
+      "predicted_iou": 0.8880192637443542,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        615.0,
+        153.0,
+        43.0,
+        90.0
+      ],
+      "area": 3243.0,
+      "predicted_iou": 0.8876445889472961,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        268.0,
+        236.0,
+        72.0,
+        79.0
+      ],
+      "area": 3052.0,
+      "predicted_iou": 0.8875638842582703,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        33.0,
+        193.0,
+        35.0,
+        34.0
+      ],
+      "area": 979.0,
+      "predicted_iou": 0.8861935138702393,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        959.0,
+        62.0,
+        52.0,
+        47.0
+      ],
+      "area": 1651.0,
+      "predicted_iou": 0.8855842351913452,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        485.0,
+        528.0,
+        82.0,
+        67.0
+      ],
+      "area": 4092.0,
+      "predicted_iou": 0.8853756785392761,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        566.0,
+        4.0,
+        31.0,
+        61.0
+      ],
+      "area": 1724.0,
+      "predicted_iou": 0.8838149905204773,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        337.0,
+        25.0,
+        63.0,
+        196.0
+      ],
+      "area": 6633.0,
+      "predicted_iou": 0.8831620812416077,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": true
+    },
+    {
+      "bbox": [
+        207.0,
+        657.0,
+        62.0,
+        39.0
+      ],
+      "area": 1359.0,
+      "predicted_iou": 0.8818557262420654,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        78.0,
+        9.0,
+        80.0,
+        151.0
+      ],
+      "area": 7785.0,
+      "predicted_iou": 0.8811079859733582,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": true
+    },
+    {
+      "bbox": [
+        1203.0,
+        446.0,
+        66.0,
+        97.0
+      ],
+      "area": 3963.0,
+      "predicted_iou": 0.8807106018066406,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        568.0,
+        268.0,
+        16.0,
+        69.0
+      ],
+      "area": 1024.0,
+      "predicted_iou": 0.8797448873519897,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1239.0,
+        59.0,
+        30.0,
+        44.0
+      ],
+      "area": 918.0,
+      "predicted_iou": 0.8784791231155396,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        586.0,
+        557.0,
+        42.0,
+        41.0
+      ],
+      "area": 1510.0,
+      "predicted_iou": 0.878444492816925,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        750.0,
+        249.0,
+        84.0,
+        124.0
+      ],
+      "area": 4177.0,
+      "predicted_iou": 0.8781538009643555,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1190.0,
+        119.0,
+        29.0,
+        43.0
+      ],
+      "area": 997.0,
+      "predicted_iou": 0.8769387006759644,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        563.0,
+        65.0,
+        33.0,
+        33.0
+      ],
+      "area": 936.0,
+      "predicted_iou": 0.8767204284667969,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        921.0,
+        210.0,
+        45.0,
+        117.0
+      ],
+      "area": 3270.0,
+      "predicted_iou": 0.8756352066993713,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1072.0,
+        360.0,
+        30.0,
+        42.0
+      ],
+      "area": 1024.0,
+      "predicted_iou": 0.8743743896484375,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        597.0,
+        5.0,
+        24.0,
+        59.0
+      ],
+      "area": 1179.0,
+      "predicted_iou": 0.8708428144454956,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1213.0,
+        365.0,
+        56.0,
+        178.0
+      ],
+      "area": 6249.0,
+      "predicted_iou": 0.8695701956748962,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        380.0,
+        105.0,
+        42.0,
+        53.0
+      ],
+      "area": 1913.0,
+      "predicted_iou": 0.8684605956077576,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1214.0,
+        116.0,
+        46.0,
+        66.0
+      ],
+      "area": 1984.0,
+      "predicted_iou": 0.8682070970535278,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        631.0,
+        86.0,
+        55.0,
+        102.0
+      ],
+      "area": 3352.0,
+      "predicted_iou": 0.8677884936332703,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        563.0,
+        64.0,
+        35.0,
+        74.0
+      ],
+      "area": 2303.0,
+      "predicted_iou": 0.8663392066955566,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        605.0,
+        239.0,
+        74.0,
+        138.0
+      ],
+      "area": 6785.0,
+      "predicted_iou": 0.8646929264068604,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1094.0,
+        374.0,
+        46.0,
+        51.0
+      ],
+      "area": 1574.0,
+      "predicted_iou": 0.8625950217247009,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        64.0,
+        143.0,
+        55.0,
+        101.0
+      ],
+      "area": 3250.0,
+      "predicted_iou": 0.8612837195396423,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        825.0,
+        197.0,
+        101.0,
+        130.0
+      ],
+      "area": 11245.0,
+      "predicted_iou": 0.9636405110359192,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1109.0,
+        541.0,
+        118.0,
+        136.0
+      ],
+      "area": 7750.0,
+      "predicted_iou": 0.9536202549934387,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        825.0,
+        149.0,
+        120.0,
+        343.0
+      ],
+      "area": 22727.0,
+      "predicted_iou": 0.9498746991157532,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        725.0,
+        87.0,
+        77.0,
+        123.0
+      ],
+      "area": 6418.0,
+      "predicted_iou": 0.9493981599807739,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        112.0,
+        318.0,
+        145.0,
+        191.0
+      ],
+      "area": 18323.0,
+      "predicted_iou": 0.9481626749038696,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        746.0,
+        186.0,
+        34.0,
+        36.0
+      ],
+      "area": 860.0,
+      "predicted_iou": 0.9468022584915161,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        256.0,
+        144.0,
+        72.0,
+        114.0
+      ],
+      "area": 4711.0,
+      "predicted_iou": 0.9382516145706177,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": true
+    },
+    {
+      "bbox": [
+        1060.0,
+        0.0,
+        209.0,
+        83.0
+      ],
+      "area": 9637.0,
+      "predicted_iou": 0.9339342713356018,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        40.0,
+        222.0,
+        87.0,
+        193.0
+      ],
+      "area": 11389.0,
+      "predicted_iou": 0.9332528710365295,
+      "person_like": true,
+      "in_checkout": true,
+      "kept_person": true
+    },
+    {
+      "bbox": [
+        878.0,
+        346.0,
+        237.0,
+        208.0
+      ],
+      "area": 24643.0,
+      "predicted_iou": 0.9319952726364136,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        564.0,
+        131.0,
+        25.0,
+        31.0
+      ],
+      "area": 594.0,
+      "predicted_iou": 0.929893970489502,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1215.0,
+        472.0,
+        54.0,
+        72.0
+      ],
+      "area": 2149.0,
+      "predicted_iou": 0.9283918142318726,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        680.0,
+        178.0,
+        33.0,
+        34.0
+      ],
+      "area": 829.0,
+      "predicted_iou": 0.9250755310058594,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        236.0,
+        337.0,
+        32.0,
+        31.0
+      ],
+      "area": 775.0,
+      "predicted_iou": 0.9225181341171265,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        811.0,
+        0.0,
+        151.0,
+        43.0
+      ],
+      "area": 4137.0,
+      "predicted_iou": 0.9224779009819031,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        990.0,
+        113.0,
+        25.0,
+        41.0
+      ],
+      "area": 899.0,
+      "predicted_iou": 0.9191981554031372,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1082.0,
+        81.0,
+        26.0,
+        39.0
+      ],
+      "area": 770.0,
+      "predicted_iou": 0.9181603193283081,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        684.0,
+        283.0,
+        24.0,
+        33.0
+      ],
+      "area": 575.0,
+      "predicted_iou": 0.9175618886947632,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        687.0,
+        99.0,
+        36.0,
+        51.0
+      ],
+      "area": 1365.0,
+      "predicted_iou": 0.9173953533172607,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        265.0,
+        373.0,
+        92.0,
+        168.0
+      ],
+      "area": 6009.0,
+      "predicted_iou": 0.9136018753051758,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1034.0,
+        75.0,
+        25.0,
+        26.0
+      ],
+      "area": 508.0,
+      "predicted_iou": 0.9110568761825562,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        299.0,
+        676.0,
+        46.0,
+        32.0
+      ],
+      "area": 894.0,
+      "predicted_iou": 0.9098755717277527,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        0.0,
+        358.0,
+        179.0,
+        361.0
+      ],
+      "area": 37734.0,
+      "predicted_iou": 0.90572589635849,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        277.0,
+        378.0,
+        34.0,
+        28.0
+      ],
+      "area": 752.0,
+      "predicted_iou": 0.9056531190872192,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        568.0,
+        4.0,
+        26.0,
+        17.0
+      ],
+      "area": 441.0,
+      "predicted_iou": 0.9049535989761353,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        729.0,
+        27.0,
+        21.0,
+        25.0
+      ],
+      "area": 489.0,
+      "predicted_iou": 0.898888349533081,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        312.0,
+        676.0,
+        33.0,
+        27.0
+      ],
+      "area": 571.0,
+      "predicted_iou": 0.8988769054412842,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        741.0,
+        65.0,
+        37.0,
+        33.0
+      ],
+      "area": 848.0,
+      "predicted_iou": 0.8979212045669556,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        230.0,
+        169.0,
+        42.0,
+        71.0
+      ],
+      "area": 1838.0,
+      "predicted_iou": 0.8976446390151978,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        519.0,
+        115.0,
+        25.0,
+        26.0
+      ],
+      "area": 521.0,
+      "predicted_iou": 0.897262692451477,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1200.0,
+        647.0,
+        69.0,
+        71.0
+      ],
+      "area": 2918.0,
+      "predicted_iou": 0.8972087502479553,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        207.0,
+        459.0,
+        54.0,
+        49.0
+      ],
+      "area": 751.0,
+      "predicted_iou": 0.8952022790908813,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        492.0,
+        625.0,
+        20.0,
+        18.0
+      ],
+      "area": 304.0,
+      "predicted_iou": 0.894469141960144,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1072.0,
+        21.0,
+        23.0,
+        28.0
+      ],
+      "area": 541.0,
+      "predicted_iou": 0.8937642574310303,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1251.0,
+        144.0,
+        18.0,
+        48.0
+      ],
+      "area": 753.0,
+      "predicted_iou": 0.8932055234909058,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        0.0,
+        0.0,
+        147.0,
+        67.0
+      ],
+      "area": 5273.0,
+      "predicted_iou": 0.8930931091308594,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1203.0,
+        73.0,
+        32.0,
+        37.0
+      ],
+      "area": 860.0,
+      "predicted_iou": 0.8930245637893677,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        769.0,
+        13.0,
+        22.0,
+        17.0
+      ],
+      "area": 337.0,
+      "predicted_iou": 0.8887972831726074,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        605.0,
+        346.0,
+        509.0,
+        324.0
+      ],
+      "area": 53509.0,
+      "predicted_iou": 0.8878341913223267,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        855.0,
+        470.0,
+        22.0,
+        27.0
+      ],
+      "area": 434.0,
+      "predicted_iou": 0.8846895694732666,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        400.0,
+        679.0,
+        18.0,
+        21.0
+      ],
+      "area": 346.0,
+      "predicted_iou": 0.8836047649383545,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        915.0,
+        49.0,
+        45.0,
+        35.0
+      ],
+      "area": 1183.0,
+      "predicted_iou": 0.880883514881134,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1211.0,
+        248.0,
+        58.0,
+        54.0
+      ],
+      "area": 1898.0,
+      "predicted_iou": 0.8800645470619202,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        802.0,
+        183.0,
+        31.0,
+        23.0
+      ],
+      "area": 539.0,
+      "predicted_iou": 0.8792192935943604,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1074.0,
+        360.0,
+        28.0,
+        21.0
+      ],
+      "area": 449.0,
+      "predicted_iou": 0.8781207799911499,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        677.0,
+        207.0,
+        44.0,
+        105.0
+      ],
+      "area": 3558.0,
+      "predicted_iou": 0.8740864992141724,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        359.0,
+        26.0,
+        23.0,
+        23.0
+      ],
+      "area": 473.0,
+      "predicted_iou": 0.8726558685302734,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        653.0,
+        306.0,
+        112.0,
+        171.0
+      ],
+      "area": 11892.0,
+      "predicted_iou": 0.8705987930297852,
+      "person_like": true,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        622.0,
+        299.0,
+        41.0,
+        133.0
+      ],
+      "area": 2369.0,
+      "predicted_iou": 0.869243860244751,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        649.0,
+        46.0,
+        22.0,
+        19.0
+      ],
+      "area": 386.0,
+      "predicted_iou": 0.8677482604980469,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        527.0,
+        74.0,
+        37.0,
+        33.0
+      ],
+      "area": 884.0,
+      "predicted_iou": 0.8669559359550476,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        47.0,
+        117.0,
+        27.0,
+        22.0
+      ],
+      "area": 421.0,
+      "predicted_iou": 0.8652658462524414,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        961.0,
+        138.0,
+        18.0,
+        33.0
+      ],
+      "area": 447.0,
+      "predicted_iou": 0.8646647930145264,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        633.0,
+        70.0,
+        32.0,
+        21.0
+      ],
+      "area": 489.0,
+      "predicted_iou": 0.863909125328064,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        168.0,
+        293.0,
+        24.0,
+        25.0
+      ],
+      "area": 487.0,
+      "predicted_iou": 0.8637022972106934,
+      "person_like": false,
+      "in_checkout": true,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        871.0,
+        75.0,
+        33.0,
+        24.0
+      ],
+      "area": 651.0,
+      "predicted_iou": 0.8628332614898682,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        1142.0,
+        212.0,
+        33.0,
+        38.0
+      ],
+      "area": 880.0,
+      "predicted_iou": 0.8624496459960938,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        489.0,
+        38.0,
+        31.0,
+        27.0
+      ],
+      "area": 712.0,
+      "predicted_iou": 0.8623805046081543,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        904.0,
+        84.0,
+        35.0,
+        26.0
+      ],
+      "area": 687.0,
+      "predicted_iou": 0.862048864364624,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    },
+    {
+      "bbox": [
+        749.0,
+        249.0,
+        83.0,
+        84.0
+      ],
+      "area": 3336.0,
+      "predicted_iou": 0.8603650331497192,
+      "person_like": false,
+      "in_checkout": false,
+      "kept_person": false
+    }
+  ],
+  "checkout_roi": [
+    0.0,
+    0.02,
+    0.3,
+    0.55
+  ],
+  "cashier_roi": [
+    0.0,
+    0.18,
+    0.14,
+    0.58
+  ],
+  "burst_frames": 1,
+  "burst_queues": [
+    5
+  ],
+  "burst_results": [
+    {
+      "frame_time_sec": 23.331348832999993,
+      "people": 6,
+      "people_in_queue": 5,
+      "cashier_present": true,
+      "masks_total": 148
+    }
+  ],
+  "burst_progress": null,
+  "burst_base_sec": 23.331348832999993,
+  "burst_done_frames": 1,
+  "playing": true,
+  "play_base_sec": 12.157813082999837,
+  "playhead_sec": 85.33,
+  "captured_frame_sec": 23.331348832999993,
+  "captured_at": "2026-10-26T17:33:20",
+  "model": "sam1-vit_b",
+  "progress_masks": 602,
+  "progress_points": 1024,
+  "progress_points_total": 1024,
+  "progress_people_in_queue": 7,
+  "config": {
+    "source": "footage",
+    "camera_index": 0,
+    "burst_frames": 3,
+    "burst_gap_sec": 1.0
+  },
+  "error": null
+}

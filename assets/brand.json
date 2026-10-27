@@ -1,0 +1,9 @@
+{
+  "name": "MOSCEYE",
+  "font_family": "Montserrat",
+  "number_weight": 700,
+  "colors": {"orange":"#c75a23","paper":"#fffdf9","ink":"#29251f","muted":"#777269"},
+  "emblem": "emblema-mosceye.png",
+  "emblem_source": "muse-gadget-sdk/esp32/simulator/src/mosceye_logo.c",
+  "cashier_states": {"present":"filled","absent":"outline","unknown":"muted"}
+}

@@ -1,0 +1,8 @@
+{
+  "http_worker_skipped_and_checking_stuck": true,
+  "pixel_thresholds_reject_same_person_at_4x_resolution": true,
+  "queue_exceeds_store_for_overlapping_boxes": {
+    "queue": 2,
+    "store": 1
+  }
+}
