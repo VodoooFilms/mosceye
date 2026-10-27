@@ -1,4 +1,8 @@
-# MOSCEYE
+<p align="center">
+  <img src="assets/app-icon.png" alt="MOSCEYE" width="170">
+</p>
+
+<h1 align="center">MOSCEYE</h1>
 
 Un chequeo desde Charm o Desktop captura un instante de la cámara y devuelve personas en fila y personas visibles. Todo se procesa localmente en esta Mac.
 
