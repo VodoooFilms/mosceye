@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/app-icon.png" alt="MOSCEYE" width="170">
+  <img src="assets/icono-mosceye.png" alt="MOSCEYE" width="200">
 </p>
 
 <h1 align="center">MOSCEYE</h1>
