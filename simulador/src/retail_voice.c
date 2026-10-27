@@ -361,7 +361,16 @@ void retail_voice_pointer_event(int x, int y, bool pressed)
 
 void retail_voice_cleanup(void)
 {
-    if (panel) close_panel();
+    /* Process teardown: release audio and files, but do not touch LVGL.
+     * lv_deinit() right after this reclaims every object anyway, and calling
+     * lv_obj_add_flag() on the panel here segfaulted at exit (crash reports
+     * 2026-10-26/27: close_panel -> lv_obj_get_style_prop on a panel whose
+     * style data was no longer valid by shutdown time). */
+    record_pointer_down = false;
+    if (capture_device) { SDL_CloseAudioDevice(capture_device); capture_device = 0; }
+    stop_playback();
+    remove_draft();
+    length = level = 0; state = IDLE;
     SDL_free(samples); samples = NULL;
     if (SDL_WasInit(SDL_INIT_AUDIO) & SDL_INIT_AUDIO) SDL_QuitSubSystem(SDL_INIT_AUDIO);
 }

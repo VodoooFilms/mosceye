@@ -1,5 +1,30 @@
 # Changelog — MOSCEYE
 
+## v0.2.6 — 2026-10-27
+
+### Corrección (sustituye el diagnóstico de v0.2.2): segfault al salir
+- El simulador volvió a caer con SIGSEGV tras la v0.2.2. Los tres informes de
+  crash de macOS (`~/Library/Logs/DiagnosticReports/muse_simulator-*.ips`,
+  26 y 27 de octubre) muestran la **misma pila**: no es el arrastre, es la
+  salida del proceso:
+  `main → retail_voice_cleanup → close_panel → lv_obj_add_flag(panel) →
+  lv_obj_get_style_prop` con acceso inválido.
+- Es decir: al cerrar, el panel de voz ya tenía datos de estilo no válidos.
+  El warning de LVGL por arrastrar fuera era un síntoma benigno coincidente
+  en el tiempo (el usuario arrastraba justo antes de cerrar).
+- No se pudo reproducir sin ratón/micrófono físicos (macOS bloquea la
+  inyección de eventos desde este entorno; ASan y sesiones largas simuladas
+  salen limpias), así que la corrección elimina el sitio del crash:
+  `retail_voice_cleanup` ya no llama a LVGL durante el apagado (libera audio,
+  borrador y buffer; `lv_deinit()` reclama los objetos justo después). El
+  cierre del panel en tiempo de ejecución (Volver) no cambia.
+- La cola de eventos de la v0.2.2 se queda como endurecimiento válido
+  (ninguna mutación LVGL dentro del procesamiento de entrada), pero queda
+  constancia de que **no** era la causa de este crash.
+- Verificación: 34/34 tests, `ctest` 1/1 y escenarios de salida completa en
+  0. La prueba definitiva es el uso real: si vuelve a caer, el próximo `.ips`
+  dirá el nuevo sitio.
+
 ## v0.2.5 — 2026-10-27
 
 ### Carpeta `simulador/` en el repo público
