@@ -44,6 +44,10 @@ integración del simulador vive en el repositorio existente de
 `muse-gadget-sdk`. No hay un repositorio en la raíz del workspace. Esto evita
 que un `git clean` en el SDK borre la UI, la voz o el skill. Ver `VERSIONING.md`.
 
+La parte Charm (UI 412×412, voz e integración con el simulador) está copiada
+en [`simulador/`](simulador/README.md), con instrucciones para montarla sobre
+una copia del SDK. Es código de simulador de escritorio, no firmware.
+
 ## Ejecutar
 
 Desde la raíz del workspace:

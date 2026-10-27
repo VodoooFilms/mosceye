@@ -1,5 +1,14 @@
 # Changelog — MOSCEYE
 
+## v0.2.5 — 2026-10-27
+
+### Carpeta `simulador/` en el repo público
+- Copia de la parte Charm de MOSCEYE (UI, voz, fuente, logo, `main.c` con el
+  cableado y el `CMakeLists.txt` del simulador) en `simulador/`, idéntica a
+  la versión commiteada en `muse-gadget-sdk` (verificado por SHA-256).
+- `simulador/README.md`: montaje sobre el SDK, contrato por `/tmp` y notas de
+  implementación. El README principal enlaza la carpeta.
+
 ## v0.2.4 — 2026-10-27
 
 ### Publicación y fuentes de video
