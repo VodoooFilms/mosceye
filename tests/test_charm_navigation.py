@@ -35,6 +35,18 @@ class CharmNavigationTests(unittest.TestCase):
         actual=self.render('drag','store=true\nswipe=left')
         self.assertTrue(np.array_equal(actual,expected))
 
+    def test_drag_out_of_window_settles_on_store_page(self):
+        # Regression: a real drag left the window (negative X in the LVGL log)
+        # and the simulator segfaulted. Releasing outside must settle cleanly.
+        expected=self.render('expected','store=true')
+        actual=self.render('dragout','drag=300,180,-250,180,14')
+        self.assertTrue(np.array_equal(actual,expected))
+
+    def test_drag_out_right_returns_to_queue_page(self):
+        expected=self.render('expected','store=false')
+        actual=self.render('dragoutr','store=true\ndrag=100,180,700,180,14')
+        self.assertTrue(np.array_equal(actual,expected))
+
     def test_previous_result_dims_until_new_request_arrives(self):
         previous=self.render('previous','')
         scenario=self.folder/'fresh.txt'
